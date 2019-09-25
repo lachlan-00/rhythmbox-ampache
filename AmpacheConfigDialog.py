@@ -33,7 +33,7 @@ class AmpacheConfigDialog(GObject.Object, PeasGtk.Configurable):
 
         def do_create_configure_widget(self):
 
-                self.settings = Gio.Settings('org.gnome.rhythmbox.plugins.ampache')
+                self.settings = Gio.Settings('org.gnome.rhythmbox.plugins.rhythmbox-ampache')
                 self.ui = Gtk.Builder()
                 self.ui.add_from_file(rb.find_plugin_file(self, 'ampache-prefs.ui'))
                 self.config_dialog = self.ui.get_object('config')

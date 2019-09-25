@@ -62,7 +62,7 @@ class PlaylistsHandler(xml.sax.handler.ContentHandler):
 
         def startElement(self, name, attrs):
                 if name == 'playlist' and attrs['id'].isdigit():
-                        self.__id = int(attrs['id'])
+                        self.__id = attrs['id']
                 self.__text = ''
 
         def endElement(self, name):
@@ -212,11 +212,11 @@ class AmpacheBrowser(RB.BrowserSource):
                 self.__songs_cache = '_songs'
                 self.__cache_directory = os.path.join(
                         RB.user_cache_dir(),
-                        'ampache')
+                        'rhythmbox-ampache')
                 self.__songs_cache_filename = os.path.join(
                         self.__cache_directory,
                         ''.join([self.__songs_cache, '.xml']))
-                self.__settings = Gio.Settings('org.gnome.rhythmbox.plugins.ampache')
+                self.__settings = Gio.Settings('org.gnome.rhythmbox.plugins.rhythmbox-ampache')
                 self.__albumart = {}
                 self.__playlists = collections.deque(
                         [[0, self.__songs_cache]])
@@ -542,7 +542,7 @@ class AmpacheBrowser(RB.BrowserSource):
 
                 def enumerate_cache_files():
                         for filename in os.listdir(
-                                os.path.join(RB.user_cache_dir(), 'ampache')):
+                                os.path.join(RB.user_cache_dir(), 'rhythmbox-ampache')):
                                 name = os.path.splitext(filename)[0]
                                 if name == self.__songs_cache:
                                         self.__caches.appendleft(name)
@@ -739,7 +739,7 @@ class AmpacheBrowser(RB.BrowserSource):
                         storekey.add_field('artist', artist)
                         store.store_uri(storekey, RB.ExtDBSourceType.SEARCH, uri)
 
-        def do_get_status(self, status, progress_text, progress):
+        def do_get_status(self, status, progress_text, progress = 0):
                 return (self.__text, self.__progress_text, self.__progress)
 
         def clean_db(self):
