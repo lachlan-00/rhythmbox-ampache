@@ -37,4 +37,4 @@ The Ampache plugin has the following Preferences:
 If the plugin doesn't work as intended, additional debug
 information can be acquired by running Rhythmbox in debug mode:
 
-$ rhythmbox -D ampache
+$ rhythmbox -D rhythmbox-ampache

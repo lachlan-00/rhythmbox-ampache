@@ -64,10 +64,10 @@ class Ampache(GObject.Object, Peas.Activatable):
                 db.register_entry_type(self.__entry_type)
 
                 # fetch plugin settings
-                settings = Gio.Settings("org.gnome.rhythmbox.plugins.ampache")
+                settings = Gio.Settings("org.gnome.rhythmbox.plugins.rhythmbox-ampache")
 
                 menu = Gio.Menu()
-                menu.append('Refetch Ampache Library', 'app.refetch-ampache')
+                menu.append('Refetch Ampache Library', 'app.refetch-rhythmbox-ampache')
 
                 # create AmpacheBrowser source
                 self.__source = GObject.new(

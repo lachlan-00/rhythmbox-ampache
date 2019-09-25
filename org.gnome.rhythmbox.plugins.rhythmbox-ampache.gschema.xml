@@ -1,5 +1,5 @@
 <schemalist>
-  <schema id="org.gnome.rhythmbox.plugins.ampache" path="/org/gnome/rhythmbox/plugins/ampache/">
+  <schema id="org.gnome.rhythmbox.plugins.rhythmbox-ampache" path="/org/gnome/rhythmbox/plugins/rhythmbox-ampache/">
     <key name="url" type="s">
       <default>''</default>
       <summary>URL for ampache server</summary>
@@ -8,12 +8,12 @@
     <key name="username" type="s">
       <default>''</default>
       <summary>Username</summary>
-      <description>Username</description>
+      <description>Your Ampache username</description>
     </key>
     <key name="password" type="s">
       <default>''</default>
       <summary>Password</summary>
-      <description>Password</description>
+      <description>Password or API Key for your user</description>
     </key>
     <child name="source" schema="org.gnome.rhythmbox.source"/>
   </schema>
